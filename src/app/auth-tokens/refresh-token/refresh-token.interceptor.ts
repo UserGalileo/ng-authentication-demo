@@ -78,14 +78,14 @@ export class RefreshTokenInterceptor implements HttpInterceptor {
           }),
           catchError((err) => {
             this.isRefreshing$.next(false);
-            this.authService.onError();
+            this.authService.onRefreshError();
             return throwError(err);
           })
         );
       }
 
       this.isRefreshing$.next(false);
-      this.authService.onError();
+      this.authService.onRefreshError();
       return throwError('Missing refresh token');
     }
 

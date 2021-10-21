@@ -88,7 +88,7 @@ export class AuthTokensService implements AuthServiceForTokens, AuthService {
   /**
    * Implements AuthServiceForTokens
    */
-  onError() {
+  onRefreshError() {
     this.logout();
   }
 

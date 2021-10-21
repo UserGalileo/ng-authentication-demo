@@ -8,7 +8,7 @@ export abstract class AuthServiceForTokens {
   ): Observable<{ accessToken: any; refreshToken: any }>;
   abstract saveAccessToken(accessToken: any): void;
   abstract saveRefreshToken(refreshToken: any): void;
-  abstract onError(): void;
+  abstract onRefreshError(): void;
 }
 
 export class NoopAuthServiceForTokens implements AuthServiceForTokens {
@@ -33,7 +33,7 @@ export class NoopAuthServiceForTokens implements AuthServiceForTokens {
   saveRefreshToken() {
     console.log('[NoopAuthServiceForTokens] saveRefreshToken');
   }
-  onError() {
-    console.log('[NoopAuthServiceForTokens] onError');
+  onRefreshError() {
+    console.log('[NoopAuthServiceForTokens] onRefreshError');
   }
 }
