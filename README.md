@@ -6,6 +6,11 @@ It contains 2 modules: `AuthCookiesModule` (standard Cookie-based authentication
 
 In AppModule, change the value of `tokensOrCookies` to load either of these 2 modules.
 
+> This project does not use _OAuth/OIDC_ to connect with an Authorization Server. The token strategy is a custom solution inspired by OAuth but it can be **less secure**.
+> 
+> At least make sure that your server absolutely implements **Refresh Token Rotation** and **Reuse Detection**!
+
+
 ### Do you need a backend for testing?
 For instructional purposes I've made multiple demos with Node/Express, feel free to use either of these, they should both work out of the box with this project:
 
