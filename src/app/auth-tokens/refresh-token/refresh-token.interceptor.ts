@@ -68,10 +68,9 @@ export class RefreshTokenInterceptor implements HttpInterceptor {
       if (refreshToken) {
         return this.authService.refreshToken(refreshToken).pipe(
           tap(({ accessToken, refreshToken }) => {
-            this.isRefreshing$.next(false);
-            console.log('saving new: ', accessToken, refreshToken)
             this.authService.saveAccessToken(accessToken);
             this.authService.saveRefreshToken(refreshToken);
+            this.isRefreshing$.next(false);
           }),
           switchMap(({ accessToken }) => {
             return next.handle(this.addTokenHeader(request, accessToken));
